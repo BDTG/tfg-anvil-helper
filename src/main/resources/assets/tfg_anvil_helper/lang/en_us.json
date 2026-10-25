@@ -1,0 +1,17 @@
+{
+  "tfg_anvil_helper.title": "Anvil helper | %s -> %s | %s steps",
+  "tfg_anvil_helper.next": "Next: %s   [H: hide]",
+  "tfg_anvil_helper.choose": "Anvil helper: select a forging recipe first",
+  "tfg_anvil_helper.manual": "Manual clicks only | H: show / hide",
+  "tfg_anvil_helper.ready": "Target and finishing rules already match",
+  "tfg_anvil_helper.no_route": "No safe exact route for these rules",
+  "tfg_anvil_helper.error": "Anvil helper error: see latest.log | H: hide",
+  "tfg_anvil_helper.action.hit_light": "Light Hit",
+  "tfg_anvil_helper.action.hit_medium": "Medium Hit",
+  "tfg_anvil_helper.action.hit_hard": "Heavy Hit",
+  "tfg_anvil_helper.action.draw": "Draw",
+  "tfg_anvil_helper.action.punch": "Punch",
+  "tfg_anvil_helper.action.bend": "Bend",
+  "tfg_anvil_helper.action.upset": "Upset",
+  "tfg_anvil_helper.action.shrink": "Shrink"
+}

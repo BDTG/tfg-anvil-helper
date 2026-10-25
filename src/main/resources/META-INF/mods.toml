@@ -1,0 +1,34 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="AGPL-3.0-only"
+
+[[mods]]
+modId="tfg_anvil_helper"
+version="1.0.1"
+displayName="TFG Anvil Helper (Private)"
+authors="BDTG"
+displayTest="IGNORE_ALL_VERSION"
+description='''Client-only manual forging advisor for TerraFirmaGreg Modern 0.13.15.
+Shows the shortest safe sequence and highlights the next button.
+No automation, no network service, no telemetry.'''
+
+[[dependencies.tfg_anvil_helper]]
+modId="forge"
+mandatory=true
+versionRange="[47.4.13,48)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.tfg_anvil_helper]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1]"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.tfg_anvil_helper]]
+modId="tfc"
+mandatory=true
+versionRange="[3.2.25]"
+ordering="AFTER"
+side="CLIENT"

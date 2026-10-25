@@ -1,0 +1,14 @@
+TFG Anvil Helper — private/local build for BDTG
+
+Inspired by TerraFirmaCraft Anvil Helper by iagocq:
+https://github.com/iagocq/tfc-anvil
+Reference snapshot: bdf76da25c5a9ee754e0c33096aae1ac2359b534
+Original project license: GNU Affero General Public License v3.
+
+This addon is a new Java client overlay and bounded breadth-first solver.
+The upstream website is not bundled; its JavaScript, screenshots and font
+are not embedded. Native icons are rendered by the already-installed TFC.
+This addon is provided under AGPL-3.0-only; see LICENSE.
+Minecraft, Forge, TerraFirmaCraft and TerraFirmaGreg are not bundled.
+Keeping a build local/private does not remove its license obligations if
+it is later distributed. No public repository or release was created.

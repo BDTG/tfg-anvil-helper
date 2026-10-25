@@ -1,0 +1,3 @@
+[01:30:25.936] [main/WARN] [packs.repository.Pack/]: Missing metadata in pack mod:tfg_anvil_helper
+Exception in thread "main" java.lang.AssertionError: JAR failed to load a valid ResourcePackInfo: tfg-anvil-helper-1.0.0-mc1.20.1.jar
+	at vn.bdtg.anvil.ResourcePackProbe.main(ResourcePackProbe.java:13)

@@ -1,0 +1,17 @@
+{
+  "tfg_anvil_helper.title": "Trợ lý rèn | %s -> %s | %s bước",
+  "tfg_anvil_helper.next": "Tiếp: %s   [H: ẩn]",
+  "tfg_anvil_helper.choose": "Trợ lý rèn: hãy chọn công thức trước",
+  "tfg_anvil_helper.manual": "Tự bấm thao tác | H: hiện / ẩn",
+  "tfg_anvil_helper.ready": "Đã khớp mục tiêu và các bước kết thúc",
+  "tfg_anvil_helper.no_route": "Không có chuỗi rèn chính xác an toàn",
+  "tfg_anvil_helper.error": "Lỗi trợ lý rèn: xem latest.log | H: ẩn",
+  "tfg_anvil_helper.action.hit_light": "Đập nhẹ (Light Hit)",
+  "tfg_anvil_helper.action.hit_medium": "Đập vừa (Medium Hit)",
+  "tfg_anvil_helper.action.hit_hard": "Đập mạnh (Heavy Hit)",
+  "tfg_anvil_helper.action.draw": "Kéo (Draw)",
+  "tfg_anvil_helper.action.punch": "Đột (Punch)",
+  "tfg_anvil_helper.action.bend": "Uốn (Bend)",
+  "tfg_anvil_helper.action.upset": "Chồn (Upset)",
+  "tfg_anvil_helper.action.shrink": "Thu (Shrink)"
+}

@@ -1,0 +1,24 @@
+# Generated outputs and machine-specific dependencies
+/build/
+/dist/
+/upstream/
+__pycache__/
+*.pyc
+*.class
+
+# Private Minecraft logs, archives and local deployment manifests
+/verification/*
+!/verification/README.md
+!/verification/build-1.0.1.log
+!/verification/probe-old.log
+!/verification/probe-fixed.log
+!/verification/main-menu-1.0.1.png
+!/verification/mod-loaded-1.0.1.png
+
+# Credentials / launcher accounts must never be versioned
+.env
+.env.*
+!.env.example
+accounts.json
+*.key
+*.pem
