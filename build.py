@@ -6,8 +6,8 @@ PRISM = pathlib.Path(os.environ.get('PRISM_ROOT', pathlib.Path.home()/'.local/sh
 INSTANCE = pathlib.Path(os.environ.get('TFG_INSTANCE', PRISM/'instances/TerraFirmaGreg-Modern'))
 JAVA_HOME = pathlib.Path(os.environ.get('JAVA_HOME', PRISM/'java/java-runtime-gamma'))
 LIBS = PRISM/'libraries'
-CORE = INSTANCE/'minecraft/mods/TerraFirmaGreg-Core-Modern-0.9.29.jar'
-if not CORE.exists(): raise SystemExit('Missing exact TFG Core 0.9.29: set TFG_INSTANCE.')
+CORE = INSTANCE/'minecraft/mods/TerraFirmaGreg-Core-Modern-0.9.30.jar'
+if not CORE.exists(): raise SystemExit('Missing exact TFG Core 0.9.30: set TFG_INSTANCE.')
 jars = [LIBS/'net/minecraft/client/1.20.1-20230612.114412/client-1.20.1-20230612.114412-srg.jar', LIBS/'net/minecraftforge/forge/1.20.1-47.4.13/forge-1.20.1-47.4.13-universal.jar', CORE]
 import json
 for metadata in ['net.minecraftforge/47.4.13.json', 'net.minecraft/1.20.1.json', 'org.lwjgl3/3.3.1.json']:
@@ -44,7 +44,7 @@ if __name__=='__main__':
     compile_set(test, sorted((ROOT/'src/test/java').rglob('*.java')),str(main)+os.pathsep+CP)
     for p in sorted((ROOT/'src/test/java').rglob('*Test.java')):
         run_test('.'.join(p.relative_to(ROOT/'src/test/java').with_suffix('').parts),str(test)+os.pathsep+str(main)+os.pathsep+CP)
-    out=ROOT/'dist/tfg-anvil-helper-1.0.1-mc1.20.1.jar';out.parent.mkdir(exist_ok=True)
+    out=ROOT/'dist/tfg-anvil-helper-1.0.2-mc1.20.1.jar';out.parent.mkdir(exist_ok=True)
     with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as z:
         for base in [main,ROOT/'src/main/resources']:
             if base.exists():

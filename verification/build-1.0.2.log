@@ -1,0 +1,31 @@
+PASS Forge metadata, client-only render/key subscribers, no gameplay-write or network calls
+PASS native TOML/Maven dependency check: installed TFC 3.2.28 accepted; unverified versions rejected
+PASS overlay state and frame cache
+PASS Minecraft native resource-pack metadata parser, pack_format=15
+PASS shortest single-step route
+PASS hit-last constraint
+  Oracle artifact: /home/sus/.local/share/PrismLauncher/instances/TerraFirmaGreg-Modern/minecraft/mods/TerraFirmaGreg-Core-Modern-0.9.30.jar (TFC 3.2.28, LIMIT=150)
+PASS SolverValidationTest: exact installed artifact, all actions/deltas/categories, runtime limit
+  Category-rule comparisons: 10290
+PASS SolverValidationTest: all 343 category histories x all 30 installed TFC rules
+  Actual-step histories: 729, rule comparisons: 21870
+PASS SolverValidationTest: all real hit strengths and absent-history permutations
+  Ordered rule-pair comparisons (including duplicates): 308700
+PASS SolverValidationTest: all ordered rule pairs, contradictions, and duplicates
+  Installed TFC recipes: 278, history comparisons: 95354
+PASS SolverValidationTest: every installed TFC anvil recipe rule conjunction
+PASS SolverValidationTest: input/transition bounds, exact single steps, detours, and zero-work loop
+PASS SolverValidationTest: newest-first history lengths 0/1/2/3/5, truncation, and immutable inputs
+PASS SolverValidationTest: unsatisfiable rules, impossible endpoints, and prior-history exceptions
+PASS SolverValidationTest: unknown rule names rejected without normalization
+  data/tfc/recipes/anvil/bismuth_bronze_axe_head.json: all 151 targets; 144 reachable, 7 impossible; shortest/replay checked
+PASS SolverValidationTest: all targets: axe, fixed three positions, empty history
+  data/tfc/recipes/anvil/bismuth_bronze_chisel_head.json: all 151 targets; 130 reachable, 21 impossible; shortest/replay checked
+PASS SolverValidationTest: all targets: chisel, two NOT_LAST rules, prior history
+  data/tfc/recipes/anvil/bismuth_bronze_fish_hook.json: all 151 targets; 140 reachable, 11 impossible; shortest/replay checked
+PASS SolverValidationTest: all targets: fish hook, ANY/NOT_LAST, upper-bound start
+  data/tfc/recipes/anvil/bismuth_bronze_chain.json: all 151 targets; 136 reachable, 15 impossible; shortest/replay checked
+PASS SolverValidationTest: all targets: chain, duplicate ANY, history longer than three
+SolverValidationTest summary: 13 groups passed, 0 failed; 449391 assertions; 905 solve calls; 0.448 s
+PASS final JAR: valid native ResourcePackInfo, format=15, en_us+vi_vn readable
+BUILT /home/sus/tfg-anvil-helper/dist/tfg-anvil-helper-1.0.2-mc1.20.1.jar 24733 bytes

@@ -152,8 +152,8 @@ public final class SolverValidationTest {
 
     private static void installedArtifactAndActions() throws Exception {
         Path jar = tfcJar();
-        check(jar.getFileName().toString().equals("TerraFirmaGreg-Core-Modern-0.9.29.jar"),
-            "Parity must load exact installed TFG Core 0.9.29, actually " + jar);
+        check(jar.getFileName().toString().equals("TerraFirmaGreg-Core-Modern-0.9.30.jar"),
+            "Parity must load exact installed TFG Core 0.9.30, actually " + jar);
         for (Class<?> type : List.of(ForgeStep.class, ForgeSteps.class)) {
             check(Path.of(type.getProtectionDomain().getCodeSource().getLocation().toURI()).equals(jar),
                 "Mixed TFC artifacts for " + type.getName());
@@ -161,8 +161,8 @@ public final class SolverValidationTest {
         try (JarFile archive = new JarFile(jar.toFile());
              var input = archive.getInputStream(archive.getJarEntry("META-INF/mods.toml"))) {
             String metadata = new String(input.readAllBytes(), StandardCharsets.UTF_8);
-            check(metadata.contains("modId = \"tfc\"\nversion = \"3.2.25\""),
-                "Installed artifact does not declare TFC 3.2.25");
+            check(metadata.contains("modId = \"tfc\"\nversion = \"3.2.28\""),
+                "Installed artifact does not declare TFC 3.2.28");
         }
         // Reflection reads the runtime field instead of javac inlining the constant.
         check(ForgeStep.class.getField("LIMIT").getInt(null) == MAX_WORK, "TFC work limit changed");
@@ -178,7 +178,7 @@ public final class SolverValidationTest {
             check(action.category == category(actual), "Wrong category for " + action);
         }
         check(mapped.equals(Set.of(STEPS)), "Action names do not cover installed ForgeSteps");
-        System.out.println("  Oracle artifact: " + jar + " (TFC 3.2.25, LIMIT=150)");
+        System.out.println("  Oracle artifact: " + jar + " (TFC 3.2.28, LIMIT=150)");
     }
 
     private static void exhaustiveCategoryRuleParity() {

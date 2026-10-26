@@ -14,6 +14,10 @@ __pycache__/
 !/verification/probe-fixed.log
 !/verification/main-menu-1.0.1.png
 !/verification/mod-loaded-1.0.1.png
+!/verification/build-1.0.2.log
+!/verification/compatibility-1.0.2.md
+!/verification/main-menu-1.0.2.png
+!/verification/mod-loaded-1.0.2.png
 
 # Credentials / launcher accounts must never be versioned
 .env
