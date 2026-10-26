@@ -1,6 +1,7 @@
 # Generated outputs and machine-specific dependencies
 /build/
 /dist/
+/logs/
 /upstream/
 __pycache__/
 *.pyc
@@ -18,6 +19,8 @@ __pycache__/
 !/verification/compatibility-1.0.2.md
 !/verification/main-menu-1.0.2.png
 !/verification/mod-loaded-1.0.2.png
+!/verification/build-1.1.0.log
+!/verification/compatibility-1.1.0.md
 
 # Credentials / launcher accounts must never be versioned
 .env

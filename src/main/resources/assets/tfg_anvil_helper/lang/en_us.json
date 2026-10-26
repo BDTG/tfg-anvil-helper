@@ -2,7 +2,7 @@
   "tfg_anvil_helper.title": "Anvil helper | %s -> %s | %s steps",
   "tfg_anvil_helper.next": "Next: %s   [H: hide]",
   "tfg_anvil_helper.choose": "Anvil helper: select a forging recipe first",
-  "tfg_anvil_helper.manual": "Manual clicks only | H: show / hide",
+  "tfg_anvil_helper.manual": "Manual or F8: auto forge one input",
   "tfg_anvil_helper.ready": "Target and finishing rules already match",
   "tfg_anvil_helper.no_route": "No safe exact route for these rules",
   "tfg_anvil_helper.error": "Anvil helper error: see latest.log | H: hide",
@@ -13,5 +13,15 @@
   "tfg_anvil_helper.action.punch": "Punch",
   "tfg_anvil_helper.action.bend": "Bend",
   "tfg_anvil_helper.action.upset": "Upset",
-  "tfg_anvil_helper.action.shrink": "Shrink"
+  "tfg_anvil_helper.action.shrink": "Shrink",
+  "tfg_anvil_helper.auto.idle": "F8: auto forge one input | H: hide",
+  "tfg_anvil_helper.auto.running": "Auto: forging | F8: cancel",
+  "tfg_anvil_helper.auto.waiting": "Auto: waiting for server | F8: cancel",
+  "tfg_anvil_helper.auto.done": "Auto: finished | F8: new job",
+  "tfg_anvil_helper.auto.cancelled": "Auto: stopped | F8: start",
+  "tfg_anvil_helper.auto.blocked": "Auto: check heat, hammer and anvil tier",
+  "tfg_anvil_helper.auto.desync": "Auto: unexpected progress; stopped",
+  "tfg_anvil_helper.auto.timeout": "Auto: no server ack; stopped (no retry)",
+  "tfg_anvil_helper.auto.no_solution": "Auto: no safe exact route",
+  "tfg_anvil_helper.auto.unconfirmed": "Unconfirmed step: close and reopen anvil"
 }

@@ -22,11 +22,13 @@ public final class AnvilOverlay {
  private static boolean visible=true, failed=false;
  private static Field leftField, topField;
  private AnvilOverlay() {}
+ public static void show() { visible=true; }
+ public static boolean usable() { return !failed; }
 
  @SubscribeEvent
  public static void key(ScreenEvent.KeyPressed.Pre event) {
   if(event.getScreen() instanceof AnvilScreen && event.getKeyCode()==72 && event.getModifiers()==0) {
-   visible=!visible; event.setCanceled(true);
+   AnvilAutomation.stop(); visible=!visible; event.setCanceled(true);
   }
  }
 
@@ -58,14 +60,15 @@ public final class AnvilOverlay {
    int rows=(route.size()+columns-1)/columns;
    int width=Math.min(available,Math.max(240,columns*25+12));
    int x=Math.max(4,(screen.f_96543_-width)/2), y=4;
-   graphics.m_280509_(x,y,x+width,y+34+rows*23,0xec15191f);
+   graphics.m_280509_(x,y,x+width,y+47+rows*23,0xec15191f);
    graphics.m_280509_(x,y,x+width,y+1,0xffeeb85b);
    text(graphics,mc.f_91062_,title,x+6,y+5,0xffffd287);
    text(graphics,mc.f_91062_,tr("next",actionName(route.get(0))),x+6,y+17,0xffeeeeee);
+   text(graphics,mc.f_91062_,AnvilAutomation.hint(),x+6,y+29,0xff87d9a0);
    for(int i=0;i<route.size();i++) {
     Solver.Action action=route.get(i);
     ForgeStep step=ForgeStep.valueOf(action.name());
-    int ix=x+6+(i%columns)*25, iy=y+31+(i/columns)*23;
+    int ix=x+6+(i%columns)*25, iy=y+44+(i/columns)*23;
     if(i==0) border(graphics,ix-2,iy-2,20,20,0xffffcd68);
     AnvilScreen.drawStepIcon(graphics,step,ix,iy);
     if(event.getMouseX()>=ix-2 && event.getMouseX()<ix+20 && event.getMouseY()>=iy-2 && event.getMouseY()<iy+20) {
@@ -80,7 +83,7 @@ public final class AnvilOverlay {
    ForgeStep next=ForgeStep.valueOf(route.get(0).name());
    border(graphics,leftField.getInt(screen)+next.buttonX()-2,topField.getInt(screen)+next.buttonY()-2,20,20,0xffffcd68);
   } catch(ReflectiveOperationException | RuntimeException | LinkageError error) {
-   failed=true;
+   AnvilAutomation.stop(); failed=true;
    System.getLogger(TFGAnvilHelper.ID).log(System.Logger.Level.ERROR,"Anvil overlay disabled safely; no game data modified",error);
   }
  }
@@ -88,10 +91,12 @@ public final class AnvilOverlay {
  private static String tr(String key,Object... args) { return I18n.m_118938_("tfg_anvil_helper."+key,args); }
  private static void text(GuiGraphics graphics,Font font,String value,int x,int y,int color) { graphics.m_280488_(font,value,x,y,color); }
  private static void panel(GuiGraphics graphics,Font font,String line1,String line2,int screenWidth) {
-  int width=Math.min(screenWidth-8,Math.max(font.m_92895_(line1),font.m_92895_(line2))+12);
+  String auto=AnvilAutomation.hint();
+  int width=Math.min(screenWidth-8,Math.max(font.m_92895_(auto),Math.max(font.m_92895_(line1),font.m_92895_(line2)))+12);
   int x=Math.max(4,(screenWidth-width)/2);
-  graphics.m_280509_(x,4,x+width,33,0xec15191f);
+  graphics.m_280509_(x,4,x+width,45,0xec15191f);
   text(graphics,font,line1,x+6,9,0xffffd287); text(graphics,font,line2,x+6,21,0xffcccccc);
+  text(graphics,font,auto,x+6,33,0xff87d9a0);
  }
  private static void border(GuiGraphics g,int x,int y,int width,int height,int color) {
   g.m_280509_(x,y,x+width,y+1,color); g.m_280509_(x,y+height-1,x+width,y+height,color);

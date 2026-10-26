@@ -1,32 +1,43 @@
 # TFG Anvil Helper
 
-Mod **client-only, mã nguồn mở** hiển thị chuỗi rèn ngắn nhất còn lại trong GUI anvil của TerraFirmaGreg. Người chơi tự bấm; không tự động rèn, sửa vật phẩm, nhiệt độ hay gửi packet thao tác.
+Mod **client-only, mã nguồn mở** hiển thị chuỗi rèn ngắn nhất còn lại trong GUI anvil của TerraFirmaGreg. Mặc định người chơi tự bấm. Từ **1.1.0**, có thể nhấn **F8** để tự rèn **một phôi**, xong thì dừng; nhấn lại để hủy. Không sửa trực tiếp vật phẩm hoặc nhiệt độ; chế độ tự động gọi nút rèn gốc của TFC và vẫn chịu kiểm tra của server.
 
-Mã nguồn được công khai tại [BDTG/tfg-anvil-helper](https://github.com/BDTG/tfg-anvil-helper) theo giấy phép **AGPL-3.0-only**. Bạn có thể tải bản build từ Releases hoặc tự build theo hướng dẫn bên dưới. Không có telemetry hoặc dịch vụ mạng.
+Mã nguồn được công khai tại [BDTG/tfg-anvil-helper](https://github.com/BDTG/tfg-anvil-helper) theo giấy phép **AGPL-3.0-only**. Bạn có thể tải bản build từ Releases hoặc tự build theo hướng dẫn bên dưới. Không có telemetry hoặc dịch vụ mạng bên ngoài.
 
 ## Phiên bản tương thích
 
 | Helper | TerraFirmaGreg Modern | Core | TFC tích hợp | Minecraft / Forge |
 |---|---|---|---|---|
-| **1.0.2 — hiện tại** | **0.13.16** | **0.9.30** | **3.2.28** | 1.20.1 / 47.4.13 |
+| **1.1.0 — thử nghiệm, có F8** | **0.13.16** | **0.9.30** | **3.2.28** | 1.20.1 / 47.4.13 |
+| **1.0.2 — ổn định, rèn tay** | **0.13.16** | **0.9.30** | **3.2.28** | 1.20.1 / 47.4.13 |
 | [1.0.1](https://github.com/BDTG/tfg-anvil-helper/releases/tag/v1.0.1) | 0.13.15 | 0.9.29 | 3.2.25 | 1.20.1 / 47.4.13 |
 
-**Tải bản hiện tại:** [Releases](https://github.com/BDTG/tfg-anvil-helper/releases/latest).
+**Thử tự rèn F8:** [v1.1.0 — pre-release](https://github.com/BDTG/tfg-anvil-helper/releases/tag/v1.1.0). **Bản rèn tay ổn định:** [v1.0.2](https://github.com/BDTG/tfg-anvil-helper/releases/tag/v1.0.2).
 
 Mỗi bản helper khóa đúng phiên bản TFC đã được kiểm tra. Không dùng helper 1.0.1 trên TFG 0.13.16; không tự nới range để bỏ qua lỗi dependency. Không dùng lại helper 1.0.0 vì thiếu resource-pack metadata.
 
 ## Cài và dùng
 
 1. Tắt Minecraft; xóa JAR helper cũ nếu có để tránh trùng mod ID.
-2. Chép `tfg-anvil-helper-1.0.2-mc1.20.1.jar` từ Releases vào `minecraft/mods/` của instance **TerraFirmaGreg-Modern 0.13.16** trong PrismLauncher.
+2. Chép `tfg-anvil-helper-1.1.0-mc1.20.1.jar` từ Releases vào `minecraft/mods/` của instance **TerraFirmaGreg-Modern 0.13.16** trong PrismLauncher.
 3. Mở game, mở anvil, đặt phôi và chọn công thức.
 4. Đọc chuỗi thao tác **trái sang phải, trên xuống dưới**. Bước tiếp theo có viền vàng; nút tương ứng trên anvil cũng được đánh dấu.
 5. **Tự bấm** nút rèn. Mod đọc lại trạng thái được TFC đồng bộ và tính lại khi work, target, luật hoặc lịch sử thay đổi. Bấm nhầm vẫn được tính lại từ trạng thái mới.
-6. Di chuột lên biểu tượng để xem tên bước và mức dịch chuyển. Nhấn **H** trong GUI anvil để ẩn/hiện (chỉ lưu trong phiên game).
+6. **Tùy chọn F8:** bắt đầu tự rèn phôi hiện tại theo công thức đã chọn, hoặc hủy lượt đang chạy. Không tự chọn công thức, lấy sản phẩm hay bắt đầu phôi kế tiếp.
+7. Di chuột lên biểu tượng để xem tên bước và mức dịch chuyển. Nhấn **H** trong GUI anvil để ẩn/hiện (chỉ lưu trong phiên game); đồng thời dừng tự rèn nếu đang chạy.
 
 Có `en_us` và `vi_vn`, theo ngôn ngữ game; ngôn ngữ khác dùng fallback tiếng Anh. Vẫn cần **búa, anvil đúng tier, phôi đủ nóng và công thức hợp lệ**. Không cần helper trên server; hãy tuân thủ quy định server về mod trợ giúp.
 
 Sau khi rèn xong, helper có thể trở về thông báo chọn công thức: sản phẩm không còn mang công thức đang rèn. Đây không phải lỗi.
+
+### An toàn của tự rèn
+
+- Tắt mặc định; mỗi phôi cần một lần nhấn F8 mới. Giữ phím không tạo nhiều lượt.
+- Chỉ gửi một thao tác đang chờ xác nhận; đối chiếu work, tổng bước và lịch sử trước khi gửi bước tiếp theo. Khoảng cách tối thiểu 4 client tick, timeout 60 client tick; không tự gửi lại thao tác.
+- Hủy khi nhấn F8/H, bấm chuột hoặc Enter/Space kích hoạt nút native, đóng GUI, đổi world/phôi/công thức, thiếu điều kiện rèn hoặc trạng thái không khớp.
+- Sau khi hủy/timeout mà còn bước chưa được xác nhận, **đóng rồi mở lại anvil** trước khi bắt đầu lượt mới. Nhấn F8 liên tiếp không bỏ qua khóa này; mở menu mới từ server hoặc đổi kết nối mới giải phóng khóa.
+- Hủy chỉ ngừng gửi bước mới: thao tác đã gửi có thể vẫn được server xử lý. Không dùng chung một anvil với người khác đang rèn đồng thời.
+- F8 hiện là phím cố định trong GUI anvil. Chỉ bật tự rèn trên server cho phép tính năng này.
 
 ## Thuật toán và giới hạn
 
@@ -35,7 +46,7 @@ Sau khi rèn xong, helper có thể trở về thông báo chọn công thức: 
 - Đích phải **chính xác**, đồng thời khớp mọi luật `LAST`, `SECOND_LAST`, `THIRD_LAST`, `NOT_LAST`, `ANY`. Ba mức Hit khác nhau về dịch chuyển nhưng cùng đáp ứng luật Hit.
 - Tối thiểu số bước **còn lại từ trạng thái hiện tại**. Cache snapshot tránh chạy lại bộ giải trên mọi frame.
 - Không cam kết Perfectly Forged cho phôi đã bị rèn thừa: bộ đếm tổng bước của TFC không bị sửa. Khi server có độ trễ, hãy đợi marker cập nhật trước khi bấm tiếp.
-- Adapter hiện nhắm rèn tay thông thường. Chưa hỗ trợ đầy đủ history có null ở giữa do automation/remote tùy biến.
+- Tự rèn từ chối history có null ở giữa do automation/remote tùy biến; không đoán lại vị trí lịch sử.
 - Lỗi tích hợp được ghi trong `minecraft/logs/latest.log`; trợ lý ngừng hoạt động an toàn thay vì sửa dữ liệu game.
 
 ## Build offline trên Linux với PrismLauncher
@@ -56,14 +67,18 @@ Nguồn dùng tên runtime **SRG 1.20.1**, biên dịch trực tiếp ra product
 
 `python3 build.py` biên dịch Java 17 và chạy:
 
-- Metadata Forge, subscriber chỉ chạy CLIENT; bytecode không gọi packet rèn hoặc ghi gameplay.
+- Metadata Forge, subscriber chỉ chạy CLIENT. Advisor không ghi gameplay; tự rèn chỉ gọi callback của `AnvilStepButton` gốc, không tự tạo packet hoặc ghi inventory.
+- **AutoForgeControllerTest:** một phôi/lượt, một thao tác chờ ack, giới hạn tốc độ, hủy, thay phôi, mất điều kiện, desync, timeout và ack đến muộn.
+- **AutoInputIntegrationTest:** Enter/keypad Enter/Space hủy bằng predicate native; hủy/timeout giữ khóa bước chưa xác nhận, chỉ tái kích hoạt sau menu/kết nối mới; giữ giới hạn tốc độ qua các lượt.
+- **AutoForgeReplayTest:** 278 recipe cài thực tế / 31 bộ luật; **366 lượt mô phỏng, 3.384 yêu cầu bước**, với xác nhận trễ 1/7/29 tick. Đây là replay trong bộ test, **không phải 366 lượt rèn trong game**.
+- Hook tích hợp và 10.000 idle tick: không tự kích hoạt và không truy cập Minecraft singleton khi không chạy.
 - **ModCompatibilityTest:** đọc TOML thật, dùng Maven VersionRange kiểm tra dependency nhận đúng **TFC 3.2.28** đang được nạp, từ chối phiên bản chưa xác minh.
 - Cache snapshot, tính lại khi trạng thái thay đổi; đường ngắn nhất và luật Hit-last.
 - **449.391 assertion** trong SolverValidationTest: đối chiếu `ForgeRule.matches()` từ **Core 0.9.30 / TFC 3.2.28** thật; 343 histories × 30 luật, các mức Hit, cặp luật, toàn bộ bộ luật của 278 recipe anvil trong JAR, biên, lịch sử, input bất biến.
 - Oracle độc lập kiểm tra shortest/replay cho mọi target 0–150 của bốn recipe mẫu (905 solve calls trong toàn bộ suite validation).
 - Parser Minecraft đọc `pack.mcmeta`. Sau khi đóng gói, native ResourcePackInfo probe mở **JAR thành phẩm**, kiểm tra format 15 và cả hai asset ngôn ngữ.
 
-Kết quả hiện tại trong [`verification/build-1.0.2.log`](verification/build-1.0.2.log); phạm vi tương thích và kiểm chứng runtime trong [`verification/compatibility-1.0.2.md`](verification/compatibility-1.0.2.md). Đây là kết quả chạy local, **không phải GitHub Actions/CI**.
+Kết quả 1.1.0 trong [`verification/build-1.1.0.log`](verification/build-1.1.0.log) và [`verification/compatibility-1.1.0.md`](verification/compatibility-1.1.0.md). Kết quả 1.0.2 vẫn được giữ riêng trong `verification/`. Đây là kết quả chạy local, **không phải GitHub Actions/CI**.
 
 ### Lịch sử kiểm chứng — không trộn phiên bản
 
@@ -72,6 +87,7 @@ Kết quả hiện tại trong [`verification/build-1.0.2.log`](verification/bui
 
 ### Changelog
 
+- **1.1.0 — pre-release:** thêm F8 tự rèn một phôi/lượt, xác nhận từng bước, hủy an toàn và trạng thái trên overlay; mặc định vẫn rèn tay. Đã chạy test và nạp mod trong game; chưa xác minh độc lập toàn bộ thao tác F8 → tooltip chất lượng thành phẩm.
 - **1.0.2:** cập nhật target sang TFG 0.13.16 / Core 0.9.30 / TFC 3.2.28; thêm regression dependency native. Không thay thuật toán hay cách bấm rèn.
 - **1.0.1:** bổ sung `pack.mcmeta` còn thiếu ở 1.0.0. Native probe tái hiện lỗi `failed to load a valid ResourcePackInfo` trên JAR cũ và chấp nhận JAR vá; xem `verification/probe-old.log` và `probe-fixed.log`.
 

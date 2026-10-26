@@ -2,7 +2,7 @@
   "tfg_anvil_helper.title": "Trợ lý rèn | %s -> %s | %s bước",
   "tfg_anvil_helper.next": "Tiếp: %s   [H: ẩn]",
   "tfg_anvil_helper.choose": "Trợ lý rèn: hãy chọn công thức trước",
-  "tfg_anvil_helper.manual": "Tự bấm thao tác | H: hiện / ẩn",
+  "tfg_anvil_helper.manual": "Rèn tay hoặc F8: tự rèn một phôi",
   "tfg_anvil_helper.ready": "Đã khớp mục tiêu và các bước kết thúc",
   "tfg_anvil_helper.no_route": "Không có chuỗi rèn chính xác an toàn",
   "tfg_anvil_helper.error": "Lỗi trợ lý rèn: xem latest.log | H: ẩn",
@@ -13,5 +13,15 @@
   "tfg_anvil_helper.action.punch": "Đột (Punch)",
   "tfg_anvil_helper.action.bend": "Uốn (Bend)",
   "tfg_anvil_helper.action.upset": "Chồn (Upset)",
-  "tfg_anvil_helper.action.shrink": "Thu (Shrink)"
+  "tfg_anvil_helper.action.shrink": "Thu (Shrink)",
+  "tfg_anvil_helper.auto.idle": "F8: tự rèn một phôi | H: ẩn",
+  "tfg_anvil_helper.auto.running": "Tự rèn đang chạy | F8: hủy",
+  "tfg_anvil_helper.auto.waiting": "Đang chờ game/server | F8: hủy",
+  "tfg_anvil_helper.auto.done": "Đã hoàn thành | F8: lượt mới",
+  "tfg_anvil_helper.auto.cancelled": "Đã dừng tự rèn | F8: bắt đầu",
+  "tfg_anvil_helper.auto.blocked": "Kiểm tra nhiệt, búa và tier anvil",
+  "tfg_anvil_helper.auto.desync": "Thao tác không khớp; đã dừng",
+  "tfg_anvil_helper.auto.timeout": "Không có xác nhận; đã dừng, không thử lại",
+  "tfg_anvil_helper.auto.no_solution": "Không có chuỗi rèn chính xác an toàn",
+  "tfg_anvil_helper.auto.unconfirmed": "Chưa rõ bước cũ: đóng rồi mở lại anvil"
 }

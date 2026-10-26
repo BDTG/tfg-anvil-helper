@@ -45,5 +45,22 @@ public final class ClientIntegrationTest {
   // Compile-time linked signatures resolved without initializing game singletons.
   Class.forName("vn.bdtg.anvil.AnvilOverlay",false,ClientIntegrationTest.class.getClassLoader()).getDeclaredMethods();
   System.out.println("PASS Forge metadata, client-only render/key subscribers, no gameplay-write or network calls");
+  ClassNode automation=read("vn/bdtg/anvil/AnvilAutomation");
+  int hooks=0,nativePresses=0,manualKeyHooks=0,menuBindings=0;
+  for(var m:automation.methods) {
+   if(m.visibleAnnotations!=null) for(var a:m.visibleAnnotations) if(a.desc.endsWith("SubscribeEvent;")) hooks++;
+   for(var insn:m.instructions) if(insn instanceof MethodInsnNode call) {
+    if(m.name.equals("key") && call.name.equals("manualKey")) manualKeyHooks++;
+    if(m.name.equals("key") && call.name.equals("bindServerMenu")) menuBindings++;
+    if(call.name.equals("m_5691_") && call.owner.equals("net/dries007/tfc/client/screen/button/AnvilStepButton")) nativePresses++;
+    if(call.owner.startsWith("net/minecraftforge/network/") || call.owner.startsWith("net/dries007/tfc/network/")) throw new AssertionError("must reuse native button, not build custom packets");
+    if(java.util.Set.of("work","workRemotely","addStep","setRecipe","setTemperature","setStackInSlot").contains(call.name)) throw new AssertionError("automation may not mutate forging/inventory state directly");
+   }
+  }
+  if(hooks!=5 || nativePresses!=1 || manualKeyHooks!=1 || menuBindings!=1) throw new AssertionError("auto must register key/release/mouse/close/tick hooks and one native button dispatch site");
+  if(AnvilAutomation.active()) throw new AssertionError("automation defaults off");
+  for(int i=0;i<10000;i++) AnvilAutomation.tick(new net.minecraftforge.event.TickEvent.ClientTickEvent(net.minecraftforge.event.TickEvent.Phase.END));
+  if(AnvilAutomation.active()) throw new AssertionError("idle ticks must never activate automation or access Minecraft singleton");
+  System.out.println("PASS auto integration: normal TFC button only, five cancellation/input hooks, idle ticks stay off");
  }
 }
