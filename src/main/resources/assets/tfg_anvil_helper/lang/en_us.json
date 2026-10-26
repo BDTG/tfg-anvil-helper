@@ -1,4 +1,5 @@
 {
+  "tfg_anvil_helper.stop": "STOP AUTO",
   "tfg_anvil_helper.controls": "F8: auto 1 input / cancel | H: show / hide",
   "tfg_anvil_helper.title": "Anvil helper | %s -> %s | %s steps",
   "tfg_anvil_helper.next": "Next: %s",

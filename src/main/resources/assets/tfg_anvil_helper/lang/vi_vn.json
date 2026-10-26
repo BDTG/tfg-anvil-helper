@@ -1,4 +1,5 @@
 {
+  "tfg_anvil_helper.stop": "DỪNG AUTO",
   "tfg_anvil_helper.controls": "F8: tự rèn 1 phôi / hủy | H: ẩn / hiện",
   "tfg_anvil_helper.title": "Trợ lý rèn | %s -> %s | %s bước",
   "tfg_anvil_helper.next": "Tiếp: %s",

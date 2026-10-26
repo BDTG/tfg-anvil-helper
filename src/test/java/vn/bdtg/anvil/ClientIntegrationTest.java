@@ -41,7 +41,7 @@ public final class ClientIntegrationTest {
     if(call.name.equals("onButtonPress") || call.name.equals("addStep") || call.name.equals("setRecipe")) throw new AssertionError("must never forge automatically");
    }
   }
-  if(subscribers!=2) throw new AssertionError("render and key event handlers");
+  if(subscribers!=3) throw new AssertionError("render, key and cancel-only mouse event handlers");
   // Compile-time linked signatures resolved without initializing game singletons.
   Class.forName("vn.bdtg.anvil.AnvilOverlay",false,ClientIntegrationTest.class.getClassLoader()).getDeclaredMethods();
   System.out.println("PASS Forge metadata, client-only render/key subscribers, no gameplay-write or network calls");

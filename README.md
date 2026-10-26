@@ -8,22 +8,22 @@ Mã nguồn được công khai tại [BDTG/tfg-anvil-helper](https://github.com
 
 | Helper | TerraFirmaGreg Modern | Core | TFC tích hợp | Minecraft / Forge |
 |---|---|---|---|---|
-| **1.1.1 — thử nghiệm, hướng dẫn phím + viền mới** | **0.13.16** | **0.9.30** | **3.2.28** | 1.20.1 / 47.4.13 |
+| **1.1.2 — thử nghiệm, có nút DỪNG AUTO** | **0.13.16** | **0.9.30** | **3.2.28** | 1.20.1 / 47.4.13 |
 | **1.0.2 — ổn định, rèn tay** | **0.13.16** | **0.9.30** | **3.2.28** | 1.20.1 / 47.4.13 |
 | [1.0.1](https://github.com/BDTG/tfg-anvil-helper/releases/tag/v1.0.1) | 0.13.15 | 0.9.29 | 3.2.25 | 1.20.1 / 47.4.13 |
 
-**Thử tự rèn F8:** [v1.1.1 — pre-release](https://github.com/BDTG/tfg-anvil-helper/releases/tag/v1.1.1). **Bản rèn tay ổn định:** [v1.0.2](https://github.com/BDTG/tfg-anvil-helper/releases/tag/v1.0.2).
+**Thử tự rèn F8:** [v1.1.2 — pre-release](https://github.com/BDTG/tfg-anvil-helper/releases/tag/v1.1.2). **Bản rèn tay ổn định:** [v1.0.2](https://github.com/BDTG/tfg-anvil-helper/releases/tag/v1.0.2).
 
 Mỗi bản helper khóa đúng phiên bản TFC đã được kiểm tra. Không dùng helper 1.0.1 trên TFG 0.13.16; không tự nới range để bỏ qua lỗi dependency. Không dùng lại helper 1.0.0 vì thiếu resource-pack metadata.
 
 ## Cài và dùng
 
 1. Tắt Minecraft; xóa JAR helper cũ nếu có để tránh trùng mod ID.
-2. Chép `tfg-anvil-helper-1.1.1-mc1.20.1.jar` từ Releases vào `minecraft/mods/` của instance **TerraFirmaGreg-Modern 0.13.16** trong PrismLauncher.
+2. Chép `tfg-anvil-helper-1.1.2-mc1.20.1.jar` từ Releases vào `minecraft/mods/` của instance **TerraFirmaGreg-Modern 0.13.16** trong PrismLauncher.
 3. Mở game, mở anvil, đặt phôi và chọn công thức.
 4. Đọc chuỗi thao tác **trái sang phải, trên xuống dưới**. Bước tiếp theo có **viền kép hồng tím đậm / đen**; nút tương ứng trên anvil cũng được đánh dấu. Viền không che biểu tượng hoặc tràn sang nút bên cạnh. Dòng **F8: tự rèn 1 phôi / hủy | H: ẩn / hiện** luôn nằm trên đầu bảng khi overlay hiện, kể cả sau khi rèn xong.
 5. **Tự bấm** nút rèn. Mod đọc lại trạng thái được TFC đồng bộ và tính lại khi work, target, luật hoặc lịch sử thay đổi. Bấm nhầm vẫn được tính lại từ trạng thái mới.
-6. **Tùy chọn F8:** bắt đầu tự rèn phôi hiện tại theo công thức đã chọn, hoặc hủy lượt đang chạy. Không tự chọn công thức, lấy sản phẩm hay bắt đầu phôi kế tiếp.
+6. **Tùy chọn F8:** bắt đầu tự rèn phôi hiện tại theo công thức đã chọn, hoặc hủy lượt đang chạy. Khi đang tự rèn, nút đỏ **DỪNG AUTO / STOP AUTO** hiện bên phải dòng hướng dẫn; bấm chuột trái để dừng. Khi hoàn thành hoặc đã hủy, auto đã tắt và nút biến mất. Không tự chọn công thức, lấy sản phẩm hay bắt đầu phôi kế tiếp.
 7. Di chuột lên biểu tượng để xem tên bước và mức dịch chuyển. Nhấn **H** trong GUI anvil để ẩn/hiện (chỉ lưu trong phiên game); đồng thời dừng tự rèn nếu đang chạy.
 
 Có `en_us` và `vi_vn`, theo ngôn ngữ game; ngôn ngữ khác dùng fallback tiếng Anh. Vẫn cần **búa, anvil đúng tier, phôi đủ nóng và công thức hợp lệ**. Không cần helper trên server; hãy tuân thủ quy định server về mod trợ giúp.
@@ -34,6 +34,7 @@ Sau khi rèn xong, helper có thể trở về thông báo chọn công thức: 
 
 - Tắt mặc định; mỗi phôi cần một lần nhấn F8 mới. Giữ phím không tạo nhiều lượt.
 - Chỉ gửi một thao tác đang chờ xác nhận; đối chiếu work, tổng bước và lịch sử trước khi gửi bước tiếp theo. Khoảng cách tối thiểu 4 client tick, timeout 60 client tick; không tự gửi lại thao tác.
+- Nút DỪNG AUTO chỉ hủy, không khởi động lại hay xóa khóa bước chưa xác nhận. Click được chặn trước GUI native để không bấm xuyên xuống inventory.
 - Hủy khi nhấn F8/H, bấm chuột hoặc Enter/Space kích hoạt nút native, đóng GUI, đổi world/phôi/công thức, thiếu điều kiện rèn hoặc trạng thái không khớp.
 - Sau khi hủy/timeout mà còn bước chưa được xác nhận, **đóng rồi mở lại anvil** trước khi bắt đầu lượt mới. Nhấn F8 liên tiếp không bỏ qua khóa này; mở menu mới từ server hoặc đổi kết nối mới giải phóng khóa.
 - Hủy chỉ ngừng gửi bước mới: thao tác đã gửi có thể vẫn được server xử lý. Không dùng chung một anvil với người khác đang rèn đồng thời.
@@ -74,12 +75,13 @@ Nguồn dùng tên runtime **SRG 1.20.1**, biên dịch trực tiếp ra product
 - Hook tích hợp và 10.000 idle tick: không tự kích hoạt và không truy cập Minecraft singleton khi không chạy.
 - **ModCompatibilityTest:** đọc TOML thật, dùng Maven VersionRange kiểm tra dependency nhận đúng **TFC 3.2.28** đang được nạp, từ chối phiên bản chưa xác minh.
 - Cache snapshot, tính lại khi trạng thái thay đổi; đường ngắn nhất và luật Hit-last.
+- **StopControlTest:** hitbox đúng màn hình/khung đã vẽ, click trái gọi hủy, không click xuyên/khởi động lại, giữ quarantine; event chuột ưu tiên HIGHEST và nhãn Anh/Việt.
 - **OverlayPresentationTest:** hướng dẫn F8/H có trong cả nhánh đang rèn và bảng không có recipe/đã xong; raster kiểm tra viền đen + hồng tím trên toàn bộ khung, vùng icon 16×16 nguyên vẹn, không vượt khung 20×20.
 - **449.391 assertion** trong SolverValidationTest: đối chiếu `ForgeRule.matches()` từ **Core 0.9.30 / TFC 3.2.28** thật; 343 histories × 30 luật, các mức Hit, cặp luật, toàn bộ bộ luật của 278 recipe anvil trong JAR, biên, lịch sử, input bất biến.
 - Oracle độc lập kiểm tra shortest/replay cho mọi target 0–150 của bốn recipe mẫu (905 solve calls trong toàn bộ suite validation).
 - Parser Minecraft đọc `pack.mcmeta`. Sau khi đóng gói, native ResourcePackInfo probe mở **JAR thành phẩm**, kiểm tra format 15 và cả hai asset ngôn ngữ.
 
-Kết quả 1.1.1 trong [`verification/build-1.1.1.log`](verification/build-1.1.1.log) và [`verification/compatibility-1.1.1.md`](verification/compatibility-1.1.1.md). Kết quả 1.1.0 được giữ riêng. Kết quả 1.0.2 vẫn được giữ riêng trong `verification/`. Đây là kết quả chạy local, **không phải GitHub Actions/CI**.
+Kết quả 1.1.2 trong [`verification/build-1.1.2.log`](verification/build-1.1.2.log) và [`verification/compatibility-1.1.2.md`](verification/compatibility-1.1.2.md). Kết quả các bản trước được giữ riêng. Kết quả 1.0.2 vẫn được giữ riêng trong `verification/`. Đây là kết quả chạy local, **không phải GitHub Actions/CI**.
 
 ### Lịch sử kiểm chứng — không trộn phiên bản
 
@@ -88,6 +90,7 @@ Kết quả 1.1.1 trong [`verification/build-1.1.1.log`](verification/build-1.1.
 
 ### Changelog
 
+- **1.1.2 — pre-release:** thêm nút đỏ DỪNG AUTO / STOP AUTO có thể click khi đang tự rèn; không còn chỉ là dòng hướng dẫn phím. Hủy qua cùng bộ điều khiển, giữ khóa bước đang chờ và chặn click xuyên. Không thay solver, adapter rèn hay cơ chế F8.
 - **1.1.1 — pre-release:** hướng dẫn F8/H cố định trên đầu mọi bảng overlay thông thường; trạng thái không lặp lại phím tắt; đổi viền bước kế tiếp và nút native sang khung kép hồng tím `#FF2DA6` / đen, giữ nguyên vùng icon. Không thay solver hoặc bộ điều khiển tự rèn.
 - **1.1.0 — pre-release:** thêm F8 tự rèn một phôi/lượt, xác nhận từng bước, hủy an toàn và trạng thái trên overlay; mặc định vẫn rèn tay. Đã chạy test và nạp mod trong game; chưa xác minh độc lập toàn bộ thao tác F8 → tooltip chất lượng thành phẩm.
 - **1.0.2:** cập nhật target sang TFG 0.13.16 / Core 0.9.30 / TFC 3.2.28; thêm regression dependency native. Không thay thuật toán hay cách bấm rèn.
