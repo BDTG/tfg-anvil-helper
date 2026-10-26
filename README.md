@@ -1,8 +1,8 @@
-# TFG Anvil Helper — bản dùng riêng
+# TFG Anvil Helper
 
-Mod **client-only** hiển thị chuỗi rèn ngắn nhất còn lại trong GUI anvil của TerraFirmaGreg. Người chơi tự bấm; không tự động rèn, sửa vật phẩm, nhiệt độ hay gửi packet thao tác.
+Mod **client-only, mã nguồn mở** hiển thị chuỗi rèn ngắn nhất còn lại trong GUI anvil của TerraFirmaGreg. Người chơi tự bấm; không tự động rèn, sửa vật phẩm, nhiệt độ hay gửi packet thao tác.
 
-Repository: [BDTG/tfg-anvil-helper](https://github.com/BDTG/tfg-anvil-helper) (**private**). Không có telemetry hoặc dịch vụ mạng.
+Mã nguồn được công khai tại [BDTG/tfg-anvil-helper](https://github.com/BDTG/tfg-anvil-helper) theo giấy phép **AGPL-3.0-only**. Bạn có thể tải bản build từ Releases hoặc tự build theo hướng dẫn bên dưới. Không có telemetry hoặc dịch vụ mạng.
 
 ## Phiên bản tương thích
 
@@ -43,7 +43,7 @@ Sau khi rèn xong, helper có thể trở về thông báo chọn công thức: 
 Cần **Python 3**, **JDK 17** và instance **TerraFirmaGreg-Modern 0.13.16** đã cài đủ dependency. Không phân phối kèm JAR Minecraft/Forge/TFC.
 
 ```bash
-gh repo clone BDTG/tfg-anvil-helper
+git clone https://github.com/BDTG/tfg-anvil-helper.git
 cd tfg-anvil-helper
 python3 build.py
 ```
@@ -81,4 +81,8 @@ Xóa đúng JAR `tfg-anvil-helper-*.jar` khỏi `minecraft/mods/`. Helper không
 
 ## License
 
-AGPL-3.0-only, xem `LICENSE` và `NOTICE`. “Private” nghĩa là repository không công khai; không phải DRM hoặc cơ chế ẩn khỏi danh sách mod. Giữ notice và tuân thủ license khi chia sẻ/phân phối lại.
+Dự án được phát hành theo **GNU Affero General Public License v3.0 (AGPL-3.0-only)**; xem [LICENSE](LICENSE) và [NOTICE](NOTICE) để biết giấy phép và ghi nhận nguồn tham khảo. Khi sửa đổi hoặc phân phối lại, hãy giữ các thông báo bản quyền và tuân thủ điều kiện giấy phép. Minecraft, Forge, TerraFirmaCraft và TerraFirmaGreg không được phân phối kèm.
+
+## Báo lỗi và đóng góp
+
+Bạn có thể [tạo issue](https://github.com/BDTG/tfg-anvil-helper/issues) hoặc gửi pull request. Khi báo lỗi, ghi rõ phiên bản helper, modpack, Minecraft/Forge, các bước tái hiện và phần log liên quan. Hãy loại bỏ token, địa chỉ server riêng tư và thông tin tài khoản trước khi chia sẻ log.
