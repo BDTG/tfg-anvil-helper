@@ -4,7 +4,7 @@ license="AGPL-3.0-only"
 
 [[mods]]
 modId="tfg_anvil_helper"
-version="1.1.0"
+version="1.1.1"
 displayName="TFG Anvil Helper"
 authors="BDTG"
 displayTest="IGNORE_ALL_VERSION"

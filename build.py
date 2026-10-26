@@ -44,7 +44,7 @@ if __name__=='__main__':
     compile_set(test, sorted((ROOT/'src/test/java').rglob('*.java')),str(main)+os.pathsep+CP)
     for p in sorted((ROOT/'src/test/java').rglob('*Test.java')):
         run_test('.'.join(p.relative_to(ROOT/'src/test/java').with_suffix('').parts),str(test)+os.pathsep+str(main)+os.pathsep+CP)
-    out=ROOT/'dist/tfg-anvil-helper-1.1.0-mc1.20.1.jar';out.parent.mkdir(exist_ok=True)
+    out=ROOT/'dist/tfg-anvil-helper-1.1.1-mc1.20.1.jar';out.parent.mkdir(exist_ok=True)
     with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as z:
         for base in [main,ROOT/'src/main/resources']:
             if base.exists():
