@@ -4,11 +4,11 @@ license="AGPL-3.0-only"
 
 [[mods]]
 modId="tfg_anvil_helper"
-version="1.1.2"
+version="1.1.3"
 displayName="TFG Anvil Helper"
 authors="BDTG"
 displayTest="IGNORE_ALL_VERSION"
-description='''Client-only forging advisor for TerraFirmaGreg Modern 0.13.16.
+description='''Client-only forging advisor for TerraFirmaGreg Modern 0.13.17.
 Shows the shortest safe sequence. F8 optionally forges one input, then stops.
 Automation defaults off. Native TFC server checks remain in force. No telemetry.'''
 

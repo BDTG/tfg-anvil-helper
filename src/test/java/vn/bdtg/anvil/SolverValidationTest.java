@@ -152,8 +152,8 @@ public final class SolverValidationTest {
 
     private static void installedArtifactAndActions() throws Exception {
         Path jar = tfcJar();
-        check(jar.getFileName().toString().equals("TerraFirmaGreg-Core-Modern-0.9.30.jar"),
-            "Parity must load exact installed TFG Core 0.9.30, actually " + jar);
+        check(jar.getFileName().toString().equals("TerraFirmaGreg-Core-Modern-0.9.31.jar"),
+            "Parity must load exact installed TFG Core 0.9.31, actually " + jar);
         for (Class<?> type : List.of(ForgeStep.class, ForgeSteps.class)) {
             check(Path.of(type.getProtectionDomain().getCodeSource().getLocation().toURI()).equals(jar),
                 "Mixed TFC artifacts for " + type.getName());

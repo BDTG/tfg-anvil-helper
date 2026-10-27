@@ -25,6 +25,8 @@ __pycache__/
 !/verification/compatibility-1.1.1.md
 !/verification/build-1.1.2.log
 !/verification/compatibility-1.1.2.md
+!/verification/build-1.1.3.log
+!/verification/compatibility-1.1.3.md
 
 # Credentials / launcher accounts must never be versioned
 .env
